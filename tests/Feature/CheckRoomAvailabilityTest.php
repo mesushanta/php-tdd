@@ -15,23 +15,25 @@ class CheckRoomAvailabilityTest extends TestCase
      * @test
      * @return void
      */
-        public function can_book_or_not()
-    {
 
-//        $room = Room::find(1); //non premium room
-//        $user = User::find(1); //non premium user
-//        $this->assertTrue($room->canBook($user));
-
-//        $room = Room::find(2); //premium room
-//        $user = User::find(1); // non premium user
-//        $this->assertFalse($room->canBook($user));
-
-//        $room = Room::find(2); //premium room
-//        $user = User::find(2); // Premium user
-//        $this->assertTrue($room->canBook($user));
-
-//        $room = Room::find(2);//non premium room
-//        $user = User::find(2);//premium user
-//        $this->assertTrue($room->canBook($user));
+    public function npr_us_npr_rm() { //non premium user , non premium room
+        $user = User::find(1);
+        $room = Room::find(1);
+        $this->assertTrue($room->canBook($user));
+    }
+    public function npr_us_pr_rm() { //non premium user , premium room
+        $room = Room::find(2);
+        $user = User::find(1);
+        $this->assertFalse($room->canBook($user));
+    }
+    public function pr_us_pr_rm() { //premium user , premium room
+        $room = Room::find(2);
+        $user = User::find(2);
+        $this->assertTrue($room->canBook($user));
+    }
+    public function pr_us_npr_rm() { //premium user , non premium room
+        $room = Room::find(1);
+        $user = User::find(2);
+        $this->assertTrue($room->canBook($user));
     }
 }
