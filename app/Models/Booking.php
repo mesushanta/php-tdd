@@ -20,4 +20,13 @@ class Booking extends Model
         'start_date',
         'end_date'
     ];
+
+    public function needAllCredit($user, $data) {
+        if($user->credit == $data['total']){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
