@@ -29,4 +29,12 @@ class Booking extends Model
             return false;
         }
     }
+
+    public function isValidDate($start_date, $end_date) {
+        if($start_date > $end_date){
+            return true;
+        }
+        return false;
+
+    }
 }

@@ -55,4 +55,11 @@ class User extends Authenticatable
     public function isPremium() {
         return $this->premium_member;
     }
+
+    public function validCreditToAdd($credit) {
+        if($credit > 0) {
+            return true;
+        }
+        return false;
+    }
 }

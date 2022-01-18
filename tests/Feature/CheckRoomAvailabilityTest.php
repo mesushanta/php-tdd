@@ -7,7 +7,9 @@ use App\Models\User;
 use App\Models\Booking;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Date;
 use Tests\TestCase;
+use Carbon\Carbon;
 
 
 class CheckRoomAvailabilityTest extends TestCase
@@ -59,6 +61,36 @@ class CheckRoomAvailabilityTest extends TestCase
 //        $this->assertFalse($booking->needAllCredit($user,$data));
 //    }
 
+//    public function is_start_date_greater_than_end_date() { // Start date is greater
+//        $booking = new Booking();
+//        $start_date =  Carbon::now()->addHour(1)->format('Y-m-d H:i:s');
+//        $end_date = Carbon::now('UTC')->format('Y-m-d H:i:s');
+//        $this->assertTrue($booking->isValidDate($start_date,$end_date));
+//    }
 
+//    public function is_start_date_greater_than_end_date() { // Equal date
+//        $booking = new Booking();
+//        $start_date = Carbon::now('UTC')->format('Y-m-d H:i:s');
+//        $end_date = Carbon::now('UTC')->format('Y-m-d H:i:s');
+//        $this->assertFalse($booking->isValidDate($start_date,$end_date));
+//    }
+//
+//    public function is_start_date_greater_than_end_date() { // Start date is less than end date
+//        $booking = new Booking();
+//        $start_date = Carbon::now('UTC')->format('Y-m-d H:i:s');
+//        $end_date = Carbon::now('UTC')->addHour(1)->format('Y-m-d H:i:s');
+//        $this->assertFalse($booking->isValidDate($start_date,$end_date));
+//    }
 
+//      public function is_negative_credit_to_add() {
+//          $user = new User();
+//          $credit = 1;
+//          $this->assertTrue($user->validCreditToAdd($credit));
+//      }
+
+//    public function is_valid_credit_to_add() {
+//        $user = new User();
+//        $credit = -1;
+//        $this->assertFalse($user->validCreditToAdd($credit));
+//    }
 }
