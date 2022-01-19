@@ -43,4 +43,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class,  'bookings');
+    }
+
+    public function isPremium() {
+        return $this->premium_member;
+    }
+
+    public function validCreditToAdd($credit) {
+        if($credit > 0) {
+            return true;
+        }
+        return false;
+    }
 }

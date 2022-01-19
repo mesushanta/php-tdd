@@ -20,4 +20,21 @@ class Booking extends Model
         'start_date',
         'end_date'
     ];
+
+    public function needAllCredit($user, $data) {
+        if($user->credit == $data['total']){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function isValidDate($start_date, $end_date) {
+        if($start_date > $end_date){
+            return true;
+        }
+        return false;
+
+    }
 }
